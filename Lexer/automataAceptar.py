@@ -34,4 +34,4 @@ def automata_aceptar(cadena):
 
 assert automata_aceptar("aceptar") == ESTADO_FINAL
 assert automata_aceptar("acep") == ESTADO_NO_FINAL
-assert automata_aceptar("aceptarr") == ESTADO_TRAMPA
+assert automata_aceptar("aceptr") == ESTADO_TRAMPA

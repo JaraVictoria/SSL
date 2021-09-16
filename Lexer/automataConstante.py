@@ -4,13 +4,17 @@ ESTADO_TRAMPA = "ESTADO TRAMPA"
 
 def automata_constante(cadena):
 	estado = 0
-	estados_finales = [1]
+	estados_finales = [2]
 
 	for caracter in cadena:
-		if estado == 0 and (caracter == "-" or caracter.isnumeric()): #Lo unico malo que le veo, es que acepta el "-0".
+		if estado == 0 and caracter == "-": 
 			estado = 1
-		elif estado == 1 and caracter.isnumeric():
-			estado = 1	
+		elif estado == 0 and caracter.isnumeric():
+			estado = 2
+		elif estado == 1 and (caracter.isdigit() and int(caracter) in range(1,10)):
+			estado = 2	
+		elif estado == 2 and caracter.isnumeric():
+			estado = 2
 		else:
 			estado = -1
 			break
@@ -22,5 +26,9 @@ def automata_constante(cadena):
 	else:
 		return ESTADO_NO_FINAL
 
-assert automata_constante("979") == ESTADO_FINAL
-assert automata_constante("98.9.") == ESTADO_TRAMPA
+assert automata_constante("36") == ESTADO_FINAL
+assert automata_constante("-10") == ESTADO_FINAL
+assert automata_constante("-") == ESTADO_NO_FINAL
+assert automata_constante("-0") == ESTADO_TRAMPA
+assert automata_constante("98a") == ESTADO_TRAMPA
+assert automata_constante("a3") == ESTADO_TRAMPA

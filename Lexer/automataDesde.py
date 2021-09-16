@@ -30,4 +30,4 @@ def automata_desde(cadena):
 
 assert automata_desde("desde") == ESTADO_FINAL
 assert automata_desde("desd") == ESTADO_NO_FINAL
-assert automata_desde("desdeeeeee") == ESTADO_TRAMPA
+assert automata_desde("desdee") == ESTADO_TRAMPA

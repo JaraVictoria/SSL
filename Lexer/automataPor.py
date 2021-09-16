@@ -22,4 +22,4 @@ def automata_por(cadena):
 
 assert automata_por("*") == ESTADO_FINAL
 assert automata_por("") == ESTADO_NO_FINAL
-assert automata_por("****") == ESTADO_TRAMPA
+assert automata_por("***") == ESTADO_TRAMPA

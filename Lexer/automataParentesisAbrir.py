@@ -22,4 +22,4 @@ def automata_parentesisAbrir(cadena):
 
 assert automata_parentesisAbrir("(") == ESTADO_FINAL
 assert automata_parentesisAbrir("") == ESTADO_NO_FINAL
-assert automata_parentesisAbrir("kk(") == ESTADO_TRAMPA
+assert automata_parentesisAbrir("k(") == ESTADO_TRAMPA

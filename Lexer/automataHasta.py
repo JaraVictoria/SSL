@@ -30,4 +30,4 @@ def automata_hasta(cadena):
 
 assert automata_hasta("hasta") == ESTADO_FINAL
 assert automata_hasta("has") == ESTADO_NO_FINAL
-assert automata_hasta("hasttta") == ESTADO_TRAMPA
+assert automata_hasta("hastta") == ESTADO_TRAMPA

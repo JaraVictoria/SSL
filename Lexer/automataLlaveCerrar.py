@@ -22,4 +22,4 @@ def automata_llaveCerrar(cadena):
 
 assert automata_llaveCerrar("}") == ESTADO_FINAL
 assert automata_llaveCerrar("") == ESTADO_NO_FINAL
-assert automata_llaveCerrar("a}") == ESTADO_TRAMPA
+assert automata_llaveCerrar("}a") == ESTADO_TRAMPA
