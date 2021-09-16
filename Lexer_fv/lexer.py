@@ -134,54 +134,7 @@ assert lexer("francisss;si}") == [(['id'],'francisss'), ([';'], ';'), (['si'], '
 assert lexer("hola23+") == [(['id'],'hola23'), (['+'], '+')]
 assert lexer("{=}") == [(['{'],'{'), (['='], '='), (['}'], '}')]"""
 
-
 #------------
 #capaz hay que hacerlo asi: 
 #assert lexer("(chau)") == [("(","("), ("ID","chau"), (")",")"), ("EOF", "EOF")]
 #------------
-
-
-#def calcCandidates(source):
-#  allTrapped = True
-#  candidates = []
-
-#  for (token_kind, automata) in TOKEN_CONFIG:
-#    result = automata(source)
-
-#    if result == RESULT_ACCEPTED:
-#      allTrapped = False
-#      candidates.append(token_kind)
-#    if result == RESULT_NOT_ACCEPTED:
-#      allTrapped = False
-#  return ((allTrapped, candidates))
-
-#def lexer(source):
-#  source +=" "
-#  index = 0
-#  tokens = []
-
-#  while index < len(source):
-#    if source[index] == " ":
-#      index += 1
-#      continue
-
-#    candidates = []
-#    start = index
-
-#    while True:
-#      next = calcCandidates(source[start:index + 1])
-#      if next[0]:
-#        break
-
-#      candidates.append(next[1])
-#      index += 1
-
-#    if len(candidates) == 0:
-#      return "TOKEN_DESCONOCIDO"
-
-#    token_kind = candidates[0]
-#    lexeme = source[start:index]
-#    token = ((token_kind, lexeme))
-
-#    tokens.append(token)
-#  return tokens
