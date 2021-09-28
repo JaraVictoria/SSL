@@ -2,18 +2,19 @@
 
 import lexer
 
-no_terminales = ['Programa', 'Asignacion', 'Estructura', 'Expresion', 'Valor', 'ListaExpresiones', 'Termino', 'Factor'] #no está completo, hay que agregar algo más (no se el que, lo dijo en el 10:30 aprox). Guardar, en una variable, todos los no terminales de la gramática
-terminales =  lexer.TOKENS_POSIBLES
-#['aceptar', 'cte', 'desde', 'entonces', 'hasta', '=', '{', '}', '+', 'mostrar', 'para', '(', ')', '*', ';', 'si', 'sino', 'id'] #no es la salida del lexer, sino los que determinamos
+no_terminales = ['Programa', 'Asignacion', 'Estructura', 'Valor', 'Expresion', 'Expresion*', 'Termino', 'Termino*','Factor', 'ListaExpresiones'] #Se guarda, en una variable, todos los no_terminales de la gramática, incluyendo los añadidos 'Expresion*' y 'Termino*'.
+terminales =  lexer.TOKENS_POSIBLES #No es la salida del lexer, sino los que determinamos.
+#['aceptar', 'cte', 'desde', 'entonces', 'hasta', '=', '{', '}', '+', 'mostrar', 'para', '(', ')', '*', ';', 'si', 'sino', 'id'] 
 
-producciones = { #estructura de diccionarios: llaves/claves y valores asignados a esa llave/clave. Hay que poner las producciones de los no terminales
+producciones = { #Estructura de diccionarios: llaves/claves y valores asignados a esa llave/clave. Hay que poner las producciones de los no terminales.
 	'Programa': [
 				['Asignacion'], #se agregó para reemplazar al "lambda". 49:40
 				['Asignacion', 'Programa'], 
 				['Estructura'], #se agregó para reemplazar al "lambda". 49:40
 				['Estructura', 'Programa']
-				#[] Para este algoritmo, la gramática no tiene que tener recursividad izquierda ni símbolos anulables, por lo que "lambda" se arregla con las líneas de código 11 y 13
-	], #producciones['Programa'][1] --> ['Estructura', 'Programa']
+				#[] Para este algoritmo, la gramática no tiene que tener recursividad izquierda ni símbolos anulables, por lo que "lambda" se arregla con las líneas de código 11 y 13.
+	], 
+	#producciones['Programa'][1] --> ['Asignacion', 'Programa'].
 	
 	'Asignacion': [
 				  ['id', '=', 'Expresion']
@@ -32,11 +33,6 @@ producciones = { #estructura de diccionarios: llaves/claves y valores asignados 
 			 ['cte']
 	],	
 	
-#	'Expresion': [
-#				 ['Expresion', '+', 'Termino'], #ARREGLAR RECURSIVIDAD IZQUIERDA. 1:24:00 // 1:57:00
-#				 ['Termino']
-#	],
-
 	'Expresion': [
 				 ['Termino', 'Expresion*'], #'Expresion*' es necesario para eliminar la recursividad izquierda. 
 	],
@@ -46,11 +42,6 @@ producciones = { #estructura de diccionarios: llaves/claves y valores asignados 
 				  ['+', 'Termino', 'Expresion*']
 				  #[]
 	],
-
-#	'Termino': [
-#			   ['Termino', '*', 'Factor'], #ARREGLAR RECURSIVIDAD IZQUIERDA. 1:24:00 // 1:57:00
-#			   ['Factor'] 
-#	],
 
 	'Termino': [
 			   ['Factor', 'Termino*'], #'Termino*' es necesario para eliminar la recursividad izquierda. 
