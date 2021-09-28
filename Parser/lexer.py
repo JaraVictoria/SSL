@@ -110,18 +110,21 @@ def lexer(source):
     token = ((token_kind, lexeme))
 
     tokens.append(token)
+
+  # AGREGO UN ULTIMO TOKEN QUE SIEMPRE DEBE ESTAR EN LA LISTA DE TOKEN: ("EOF", "EOF")
+  tokens.append(("EOF", "EOF"))
   #print("SOURCE: ", source)
   #print(tokens)    #( DESCOMENTAR PARA MOSTRAR POR CONSOLA LA LISTA DE TOKENS QUE
   #                  DEVUELVE CADA LLAMADA A LA FUNCION lexer )
   return tokens
 
-assert lexer("hola } 32") == [('id','hola'), ('}', '}'), ('cte', '32')]
-assert lexer("2 + 2 = 4") == [('cte','2'), ('+', '+'),('cte','2'), ('=', '='), ('cte', '4')]
-assert lexer("(hola}") == [('(','('), ('id', 'hola'), ('}', '}')]
-assert lexer("para; y desde") == [('para','para'), (';',';'), ('id', 'y'), ('desde', 'desde')]
-assert lexer("2 * 4 = 8") == [('cte','2'), ('*', '*'), ('cte', '4'), ('=', '='), ('cte', '8')]
-assert lexer("entonces;hasta cuando") == [('entonces','entonces'), (';', ';'), ('hasta', 'hasta'), ('id', 'cuando')]
-assert lexer("francisss;si") == [('id','francisss'), (';', ';'), ('si', 'si')]
-assert lexer("hola23+") == [('id','hola23'), ('+', '+'),]
-assert lexer("{=}") == [('{','{'), ('=', '='), ('}', '}'),]
-assert lexer("(chau)") == [("(","("), ("id","chau"), (")",")"),]
+assert lexer("hola } 32") == [('id','hola'), ('}', '}'), ('cte', '32'), ("EOF", "EOF")]
+assert lexer("2 + 2 = 4") == [('cte','2'), ('+', '+'),('cte','2'), ('=', '='), ('cte', '4'), ("EOF", "EOF")]
+assert lexer("(hola}") == [('(','('), ('id', 'hola'), ('}', '}'), ("EOF", "EOF")]
+assert lexer("para; y desde") == [('para','para'), (';',';'), ('id', 'y'), ('desde', 'desde'), ("EOF", "EOF")]
+assert lexer("2 * 4 = 8") == [('cte','2'), ('*', '*'), ('cte', '4'), ('=', '='), ('cte', '8'), ("EOF", "EOF")]
+assert lexer("entonces;hasta cuando") == [('entonces','entonces'), (';', ';'), ('hasta', 'hasta'), ('id', 'cuando'), ("EOF", "EOF")]
+assert lexer("francisss;si") == [('id','francisss'), (';', ';'), ('si', 'si'), ("EOF", "EOF")]
+assert lexer("hola23+") == [('id','hola23'), ('+', '+'), ("EOF", "EOF")]
+assert lexer("{=}") == [('{','{'), ('=', '='), ('}', '}'), ("EOF", "EOF")]
+assert lexer("(chau)") == [("(","("), ("id","chau"), (")",")"), ("EOF", "EOF")]
