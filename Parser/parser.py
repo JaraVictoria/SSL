@@ -34,7 +34,7 @@ producciones = { #Estructura de diccionarios: llaves/claves y valores asignados 
 	],	
 	
 	'Expresion': [
-				 ['Termino', 'Expresion*'], #'Expresion*' es necesario para eliminar la recursividad izquierda. 
+				 ['Termino', 'Expresion*'] #'Expresion*' es necesario para eliminar la recursividad izquierda. 
 	],
 
 	'Expresion*': [
@@ -44,7 +44,7 @@ producciones = { #Estructura de diccionarios: llaves/claves y valores asignados 
 	],
 
 	'Termino': [
-			   ['Factor', 'Termino*'], #'Termino*' es necesario para eliminar la recursividad izquierda. 
+			   ['Factor', 'Termino*'] #'Termino*' es necesario para eliminar la recursividad izquierda. 
 	],
 
 	'Termino*': [
