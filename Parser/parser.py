@@ -38,7 +38,7 @@ producciones = { #Estructura de diccionarios: llaves/claves y valores asignados 
 	],
 
 	'Expresion*': [
-				  ['+', 'Termino'] #Con esta produccion se reemplaza el "lambda".
+				  ['+', 'Termino'], #Con esta produccion se reemplaza el "lambda".
 				  ['+', 'Termino', 'Expresion*']
 				  #[]
 	],
