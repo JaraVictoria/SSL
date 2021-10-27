@@ -112,7 +112,12 @@ def parser(lista_tokens): #lista_tokens es la salida del lexer, lista_tokens = l
 
 #Hacemos una variable que guarde la salida del lexer
 
-#parser(lexer("variable = 123")) #, ('EOF', 'EOF'))
+#cadena=lexer("variable = 123")
+#parser([cadena,('EOF','EOF')])
+
+#assert(parser(lexer('variable = 123')))
+
+#, ('EOF', 'EOF'))
 
 #parser([(token1,lexema1), (token2,lexema2), ..., ('EOF', 'EOF')])
 #parser([terminales, ('EOF', 'EOF')])
