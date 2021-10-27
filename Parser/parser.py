@@ -34,22 +34,24 @@ producciones = { #Estructura de diccionarios: llaves/claves y valores asignados 
 	],	
 	
 	'Expresion': [
-				 ['Termino', 'Expresion*'] #'Expresion*' es necesario para eliminar la recursividad izquierda. 
+				 ['Termino', 'Expresion*'], #'Expresion*' es necesario para eliminar la recursividad izquierda. 
+				 ['Termino']
 	],
 
 	'Expresion*': [
-				  ['+', 'Termino'], #Con esta produccion se reemplaza el "lambda".
-				  ['+', 'Termino', 'Expresion*']
+				  ['+', 'Termino', 'Expresion*'], #Esta produccion se pone primero porque es la de mayor longitud y sirve para evitar errores impredecibles.
+				  ['+', 'Termino'] #Con esta produccion se reemplaza el "lambda".			  
 				  #[]
 	],
 
 	'Termino': [
-			   ['Factor', 'Termino*'] #'Termino*' es necesario para eliminar la recursividad izquierda. 
+			   ['Factor', 'Termino*'], #'Termino*' es necesario para eliminar la recursividad izquierda. 
+			   ['Factor']
 	],
 
 	'Termino*': [
-				['*', 'Factor'], #Con esta produccion se reemplaza el "lambda".
-				['*', 'Factor', 'Termino*']
+				['*', 'Factor', 'Termino*'], #Esta produccion se pone primero porque es la de mayor longitud y sirve para evitar errores impredecibles.
+				['*', 'Factor'] #Con esta produccion se reemplaza el "lambda".
 				#[]
 	],
 
@@ -108,5 +110,9 @@ def parser(lista_tokens): #lista_tokens es la salida del lexer, lista_tokens = l
 
 	return principal()
 
+#Hacemos una variable que guarde la salida del lexer
+
+#parser(lexer("variable = 123")) #, ('EOF', 'EOF'))
+
 #parser([(token1,lexema1), (token2,lexema2), ..., ('EOF', 'EOF')])
-parser([terminales, ('EOF', 'EOF')])
+#parser([terminales, ('EOF', 'EOF')])
