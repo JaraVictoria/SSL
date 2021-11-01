@@ -44,41 +44,33 @@ TOKENS_POSIBLES = [
 def calcCandidates(source):
   allTrapped = True
   candidates = []
-  #print("**********************************************************************")
+
   for (token_kind, automata) in TOKENS_POSIBLES:
     result = automata(source)
-    #print("********************************************************************")
-    #print("ALLTRAPPED: ", allTrapped)
-    #print("TOKEN_KIND: ", token_kind)
-    #print("AUTOMATA: ", automata)
-    #print("RESULT: ", result)
 
     if result == ESTADO_FINAL:
       allTrapped = False
       candidates.append(token_kind)
-      #print("CANDIDATES: ", candidates)
+      
     if result == ESTADO_NO_FINAL:
       allTrapped = False
 
   if len(candidates) == 0:
     return ((allTrapped, []))
 
-  #print("SOURCE: ", source)
-  #print("token_kind: ", candidates[0])
-  #print("**********************************************************************")
   return ((allTrapped, candidates[0]))
 
-# FUNCION "PRINCIPAL" DEL LEXER:
-# RECIBE UN STRING COMO INPUT Y DEVUELVE UNA LISTA DE TUPLAS,
-# CADA TUPLA SE LLAMA "TOKEN",
-# EL PRIMER ELEMENTO DEL TOKEN ES EL TIPO DE TOKEN,
-# EL SEGUNDO ELEMENTO ES EL LEXEME.
+# Función "Principal" del LEXER: 
+  # Recibe un STRING como INPUT y devuelve una LISTA DE TUPLAS,
+  # Cada TUPLA se llama "TOKEN",
+    # El primer elemento del TOKEN es el TIPO DE TOKEN, 
+    # El segundo elemento del TOKEN es el LEXEME.
 
-# EL LEXEME ES UNA PALABRA QUE ESTA CONTENIDA EN EL INPUT,
-# EL TIPO DE TOKEN ES LA CLASIFICACION QUE LE CORRESPONDE A ESA PALABRA SEGUN LA GRAMATICA DADA.
+# El LEXEME es una palabra que está contenida en el INPUT,
+# El TIPO DE TOKEN es la clasificación que le corresponde a esa palabra según la gramática dada.
 
 def lexer(source):
-  source +=" "
+  source += " "
   index = 0
   tokens = []
 
@@ -87,18 +79,17 @@ def lexer(source):
       index += 1
       continue
 
-    #print("INDEX COMIENZA EN: ", index)
     candidates = []
     start = index
 
     while True:
       next = calcCandidates(source[start:index + 1])
-      #print("CANDIDATOS: ", next[1])
+      
       if next[0]:
         break
 
       candidates = next[1]
-      #print("CANDIDATOS: ", candidates)
+      
       index += 1
 
     if len(candidates) == 0:
@@ -111,11 +102,10 @@ def lexer(source):
 
     tokens.append(token)
 
-  # AGREGO UN ULTIMO TOKEN QUE SIEMPRE DEBE ESTAR EN LA LISTA DE TOKEN: ("EOF", "EOF")
+  # Agrego un último TOKEN que siempre debe estar en la LISTA DE TOKEN: ("EOF", "EOF")
   tokens.append(("EOF", "EOF"))
-  #print("SOURCE: ", source)
-  #print(tokens)    #( DESCOMENTAR PARA MOSTRAR POR CONSOLA LA LISTA DE TOKENS QUE
-  #                  DEVUELVE CADA LLAMADA A LA FUNCION lexer )
+  # Muestra por CONSOLA, la LISTA DE TOKENS que devuelve cada LLAMADA a la FUNCIÓN "lexer", es decir, cada ASSERT.
+  #print(tokens)    
   return tokens
 
 assert lexer("hola } 32") == [('id','hola'), ('}', '}'), ('cte', '32'), ("EOF", "EOF")]
