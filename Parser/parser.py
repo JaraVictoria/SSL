@@ -1,5 +1,3 @@
-#Es una especie de pseudocódigo, no se puede correr tal cual está.
-
 import lexer
 
 no_terminales = ['Programa', 'Asignacion', 'Estructura', 'Valor', 'Expresion', 'Expresion*', 'Termino', 'Termino*','Factor', 'ListaExpresiones'] #Se guarda, en una variable, todos los no_terminales de la gramática, incluyendo los añadidos 'Expresion*' y 'Termino*'.

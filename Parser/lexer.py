@@ -88,7 +88,7 @@ def lexer(source):
       index += 1 #se le suma 1 al indice, y
       continue #se omite las demas condiciones externas y vuelve al ciclo principal (es decir, vuelve a la linea de codigo 86)
 
-    candidates = [] #la lista "candidatos" es vacia
+    candidates = [] #la lista "candidatos" es vacia (se le asigna tipo_token)
     start = index #a la variable "start" le asignamos el "indice" actual
 
     while True: #mientras sea True...
