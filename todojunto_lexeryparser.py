@@ -652,7 +652,7 @@ def lexer(source):
   #print(tokens)    
   return tokens
 
-print(lexer("variable = 123"))
+
 assert lexer("hola } 32") == [('id','hola'), ('}', '}'), ('cte', '32'), ("EOF", "EOF")]
 assert lexer("2 + 2 = 4") == [('cte','2'), ('+', '+'),('cte','2'), ('=', '='), ('cte', '4'), ("EOF", "EOF")]
 assert lexer("(hola}") == [('(','('), ('id', 'hola'), ('}', '}'), ("EOF", "EOF")]
@@ -665,8 +665,7 @@ assert lexer("{=}") == [('{','{'), ('=', '='), ('}', '}'), ("EOF", "EOF")]
 assert lexer("(chau)") == [("(","("), ("id","chau"), (")",")"), ("EOF", "EOF")]
 
 no_terminales = ['Programa', 'Asignacion', 'Estructura', 'Valor', 'Expresion', 'Expresion*', 'Termino', 'Termino*','Factor', 'ListaExpresiones'] #Se guarda, en una variable, todos los no_terminales de la gramática, incluyendo los añadidos 'Expresion*' y 'Termino*'.
-terminales =  TOKENS_POSIBLES #No es la salida del lexer, sino los que determinamos.
-#['aceptar', 'cte', 'desde', 'entonces', 'hasta', '=', '{', '}', '+', 'mostrar', 'para', '(', ')', '*', ';', 'si', 'sino', 'id'] 
+terminales =  ['aceptar', 'cte', 'desde', 'entonces', 'hasta', '=', '{', '}', '+', 'mostrar', 'para', '(', ')', '*', ';', 'si', 'sino', 'id'] 
 
 producciones = { #Estructura de diccionarios: llaves/claves y valores asignados a esa llave/clave. Hay que poner las producciones de los no terminales.
 	'Programa': [
@@ -731,7 +730,7 @@ producciones = { #Estructura de diccionarios: llaves/claves y valores asignados 
 
 def parser(lista_tokens): #lista_tokens es la salida del lexer, lista_tokens = lexer(codigo_fuente). Es la "w".
 	datos_parser = {
-		'tokens': lexer(lista_tokens),
+		'tokens': lista_tokens,
 		'posicion_indice': 0, #es la "t", seria en que posicion de la cadena de entrada estoy apuntando, es decir, una posicion dentro de nuestra lista_tokens
 		'error': False, #variable que controla el funcionamiento del parser, se pone en "false", asumiendo que no hay ningun error en el procesamiento. Si llega a haber un error, es decir que es "true", la cadena no pertenece
 	}
@@ -777,7 +776,21 @@ def parser(lista_tokens): #lista_tokens es la salida del lexer, lista_tokens = l
 #cadena=lexer("variable = 123")
 #parser([cadena,('EOF','EOF')])
 
-assert(parser(lexer('variable = 123'))==True)
+assert(parser(lexer('variable = variable')))
+assert(parser(lexer('variable = 123')))
+assert(parser(lexer("mientras = (3)")))
+assert(parser(lexer("mientras = (hola)")))
+
+#no me deja hacer otras derivaciones que tengan una forma distinta a la de Asignacion
+
+
+
+
+
+#assert(parser(lexer('variable = 123')))
+#assert(parser(lexer('x = 3')))
+#assert(parser(lexer("x = largo == arrayDeDatos(6521)"))==True)
+#assert(parser(lexer("mientras x == 3 hacer var = funcionSobre(ancho) + funcionSobre(largo)"))==True)
 
 #, ('EOF', 'EOF'))
 
