@@ -1,3 +1,5 @@
+#------------------------------------------------------------------------------------AUTOMATAS------------------------------------------------------------------------------------
+
 ESTADO_FINAL = "ESTADO ACEPTADO"
 ESTADO_NO_FINAL = "ESTADO NO ACEPTADO"
 ESTADO_TRAMPA = "ESTADO TRAMPA"
@@ -36,6 +38,8 @@ assert automata_aceptar("aceptar") == ESTADO_FINAL
 assert automata_aceptar("acep") == ESTADO_NO_FINAL
 assert automata_aceptar("aceptr") == ESTADO_TRAMPA
 
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ESTADO_FINAL = "ESTADO ACEPTADO"
 ESTADO_NO_FINAL = "ESTADO NO ACEPTADO"
 ESTADO_TRAMPA = "ESTADO TRAMPA"
@@ -71,6 +75,8 @@ assert automata_constante("-0") == ESTADO_TRAMPA
 assert automata_constante("98a") == ESTADO_TRAMPA
 assert automata_constante("a3") == ESTADO_TRAMPA
 
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ESTADO_FINAL = "ESTADO ACEPTADO"
 ESTADO_NO_FINAL = "ESTADO NO ACEPTADO"
 ESTADO_TRAMPA = "ESTADO TRAMPA"
@@ -104,6 +110,8 @@ def automata_desde(cadena):
 assert automata_desde("desde") == ESTADO_FINAL
 assert automata_desde("desd") == ESTADO_NO_FINAL
 assert automata_desde("desdee") == ESTADO_TRAMPA
+
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ESTADO_FINAL = "ESTADO ACEPTADO"
 ESTADO_NO_FINAL = "ESTADO NO ACEPTADO"
@@ -145,6 +153,8 @@ assert automata_entonces("entonces") == ESTADO_FINAL
 assert automata_entonces("enton") == ESTADO_NO_FINAL
 assert automata_entonces("entnnces") == ESTADO_TRAMPA
 
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ESTADO_FINAL = "ESTADO ACEPTADO"
 ESTADO_NO_FINAL = "ESTADO NO ACEPTADO"
 ESTADO_TRAMPA = "ESTADO TRAMPA"
@@ -179,6 +189,8 @@ assert automata_hasta("hasta") == ESTADO_FINAL
 assert automata_hasta("has") == ESTADO_NO_FINAL
 assert automata_hasta("hastta") == ESTADO_TRAMPA
 
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ESTADO_FINAL = "ESTADO ACEPTADO"
 ESTADO_NO_FINAL = "ESTADO NO ACEPTADO"
 ESTADO_TRAMPA = "ESTADO TRAMPA"
@@ -207,6 +219,8 @@ assert automata_identificador("fdgdf45g") == ESTADO_FINAL
 assert automata_identificador("") == ESTADO_NO_FINAL
 assert automata_identificador("4as3") == ESTADO_TRAMPA
 
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ESTADO_FINAL = "ESTADO ACEPTADO"
 ESTADO_NO_FINAL = "ESTADO NO ACEPTADO"
 ESTADO_TRAMPA = "ESTADO TRAMPA"
@@ -232,6 +246,8 @@ def automata_igual(cadena):
 assert automata_igual("=") == ESTADO_FINAL
 assert automata_igual("") == ESTADO_NO_FINAL
 assert automata_igual("==") == ESTADO_TRAMPA
+
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ESTADO_FINAL = "ESTADO ACEPTADO"
 ESTADO_NO_FINAL = "ESTADO NO ACEPTADO"
@@ -259,6 +275,8 @@ assert automata_llaveAbrir("{") == ESTADO_FINAL
 assert automata_llaveAbrir("") == ESTADO_NO_FINAL
 assert automata_llaveAbrir("a{") == ESTADO_TRAMPA
 
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ESTADO_FINAL = "ESTADO ACEPTADO"
 ESTADO_NO_FINAL = "ESTADO NO ACEPTADO"
 ESTADO_TRAMPA = "ESTADO TRAMPA"
@@ -285,6 +303,8 @@ assert automata_llaveCerrar("}") == ESTADO_FINAL
 assert automata_llaveCerrar("") == ESTADO_NO_FINAL
 assert automata_llaveCerrar("}a") == ESTADO_TRAMPA
 
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ESTADO_FINAL = "ESTADO ACEPTADO"
 ESTADO_NO_FINAL = "ESTADO NO ACEPTADO"
 ESTADO_TRAMPA = "ESTADO TRAMPA"
@@ -310,6 +330,8 @@ def automata_mas(cadena):
 assert automata_mas("+") == ESTADO_FINAL
 assert automata_mas("") == ESTADO_NO_FINAL
 assert automata_mas(";+") == ESTADO_TRAMPA
+
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ESTADO_FINAL = "ESTADO ACEPTADO"
 ESTADO_NO_FINAL = "ESTADO NO ACEPTADO"
@@ -349,6 +371,8 @@ assert automata_mostrar("mostrar") == ESTADO_FINAL
 assert automata_mostrar("mos") == ESTADO_NO_FINAL
 assert automata_mostrar("mossstrar") == ESTADO_TRAMPA
 
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ESTADO_FINAL = "ESTADO ACEPTADO"
 ESTADO_NO_FINAL = "ESTADO NO ACEPTADO"
 ESTADO_TRAMPA = "ESTADO TRAMPA"
@@ -381,6 +405,8 @@ assert automata_para("para") == ESTADO_FINAL
 assert automata_para("par") == ESTADO_NO_FINAL
 assert automata_para("parra") == ESTADO_TRAMPA
 
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ESTADO_FINAL = "ESTADO ACEPTADO"
 ESTADO_NO_FINAL = "ESTADO NO ACEPTADO"
 ESTADO_TRAMPA = "ESTADO TRAMPA"
@@ -406,6 +432,8 @@ def automata_parentesisAbrir(cadena):
 assert automata_parentesisAbrir("(") == ESTADO_FINAL
 assert automata_parentesisAbrir("") == ESTADO_NO_FINAL
 assert automata_parentesisAbrir("k(") == ESTADO_TRAMPA
+
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ESTADO_FINAL = "ESTADO ACEPTADO"
 ESTADO_NO_FINAL = "ESTADO NO ACEPTADO"
@@ -433,6 +461,8 @@ assert automata_parentesisCerrar(")") == ESTADO_FINAL
 assert automata_parentesisCerrar("") == ESTADO_NO_FINAL
 assert automata_parentesisCerrar("()") == ESTADO_TRAMPA
 
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ESTADO_FINAL = "ESTADO ACEPTADO"
 ESTADO_NO_FINAL = "ESTADO NO ACEPTADO"
 ESTADO_TRAMPA = "ESTADO TRAMPA"
@@ -459,6 +489,8 @@ assert automata_por("*") == ESTADO_FINAL
 assert automata_por("") == ESTADO_NO_FINAL
 assert automata_por("***") == ESTADO_TRAMPA
 
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ESTADO_FINAL = "ESTADO ACEPTADO"
 ESTADO_NO_FINAL = "ESTADO NO ACEPTADO"
 ESTADO_TRAMPA = "ESTADO TRAMPA"
@@ -484,6 +516,8 @@ def automata_puntoComa(cadena):
 assert automata_puntoComa(";") == ESTADO_FINAL
 assert automata_puntoComa("") == ESTADO_NO_FINAL
 assert automata_puntoComa(".;") == ESTADO_TRAMPA
+
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ESTADO_FINAL = "ESTADO ACEPTADO"
 ESTADO_NO_FINAL = "ESTADO NO ACEPTADO"
@@ -512,6 +546,8 @@ def automata_si(cadena):
 assert automata_si("si") == ESTADO_FINAL
 assert automata_si("s") == ESTADO_NO_FINAL
 assert automata_si("sssssi") == ESTADO_TRAMPA
+
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ESTADO_FINAL = "ESTADO ACEPTADO"
 ESTADO_NO_FINAL = "ESTADO NO ACEPTADO"
@@ -545,8 +581,7 @@ assert automata_sino("sino") == ESTADO_FINAL
 assert automata_sino("sin") == ESTADO_NO_FINAL
 assert automata_sino("siño") == ESTADO_TRAMPA
 
-
-
+#------------------------------------------------------------------------------------LEXER------------------------------------------------------------------------------------
 
 ESTADO_FINAL = "ESTADO ACEPTADO"
 ESTADO_NO_FINAL = "ESTADO NO ACEPTADO"
@@ -652,7 +687,6 @@ def lexer(source):
   #print(tokens)    
   return tokens
 
-
 assert lexer("hola } 32") == [('id','hola'), ('}', '}'), ('cte', '32'), ("EOF", "EOF")]
 assert lexer("2 + 2 = 4") == [('cte','2'), ('+', '+'),('cte','2'), ('=', '='), ('cte', '4'), ("EOF", "EOF")]
 assert lexer("(hola}") == [('(','('), ('id', 'hola'), ('}', '}'), ("EOF", "EOF")]
@@ -664,15 +698,18 @@ assert lexer("hola23+") == [('id','hola23'), ('+', '+'), ("EOF", "EOF")]
 assert lexer("{=}") == [('{','{'), ('=', '='), ('}', '}'), ("EOF", "EOF")]
 assert lexer("(chau)") == [("(","("), ("id","chau"), (")",")"), ("EOF", "EOF")]
 
+#------------------------------------------------------------------------------------PARSER------------------------------------------------------------------------------------
+
 no_terminales = ['Programa', 'Asignacion', 'Estructura', 'Valor', 'Expresion', 'Expresion*', 'Termino', 'Termino*','Factor', 'ListaExpresiones'] #Se guarda, en una variable, todos los no_terminales de la gramática, incluyendo los añadidos 'Expresion*' y 'Termino*'.
-terminales =  ['aceptar', 'cte', 'desde', 'entonces', 'hasta', '=', '{', '}', '+', 'mostrar', 'para', '(', ')', '*', ';', 'si', 'sino', 'id'] 
+terminales =  ['aceptar', 'cte', 'desde', 'entonces', 'hasta', '=', '{', '}', '+', 'mostrar', 'para', '(', ')', '*', ';', 'si', 'sino', 'id'] #No es la salida del lexer, sino los que determinamos.
+#terminales =  lexer.TOKENS_POSIBLES (esto estaba mal, ya que TOKENS_POSIBLES era una tupla)
 
 producciones = { #Estructura de diccionarios: llaves/claves y valores asignados a esa llave/clave. Hay que poner las producciones de los no terminales.
 	'Programa': [
+				['Asignacion', 'Programa'], #Esta produccion se pone primero porque es la de mayor longitud y sirve para evitar errores impredecibles.
 				['Asignacion'], #se agregó para reemplazar al "lambda". 49:40
-				['Asignacion', 'Programa'], 
-				['Estructura'], #se agregó para reemplazar al "lambda". 49:40
-				['Estructura', 'Programa']
+				['Estructura', 'Programa'], #Esta produccion se pone primero porque es la de mayor longitud y sirve para evitar errores impredecibles.
+				['Estructura'] #se agregó para reemplazar al "lambda". 49:40
 				#[] Para este algoritmo, la gramática no tiene que tener recursividad izquierda ni símbolos anulables, por lo que "lambda" se arregla con las líneas de código 11 y 13.
 	], 
 	#producciones['Programa'][1] --> ['Asignacion', 'Programa'].
@@ -771,28 +808,24 @@ def parser(lista_tokens): #lista_tokens es la salida del lexer, lista_tokens = l
 
 	return principal()
 
-#Hacemos una variable que guarde la salida del lexer
+#Para probar el parser podemos:
 
-#cadena=lexer("variable = 123")
-#parser([cadena,('EOF','EOF')])
+# Hacer una variable que guarde la salida del lexer (el símbolo de fin de cadena ya está incluido) para luego parsearla, como por ejemplo:
+	#cadena = lexer("variable = 123")
+	#parser(cadena)
 
-assert(parser(lexer('variable = variable')))
+# O simplemente llamar a la función lexer dentro del parser:
+	#parser(lexer(cadena))
+
 assert(parser(lexer('variable = 123')))
-assert(parser(lexer("mientras = (3)")))
-assert(parser(lexer("mientras = (hola)")))
+assert(parser(lexer('para id1 desde 0 hasta 10 { aceptar saludo }')))
+assert(parser(lexer('hola = 2 + 2')))
+assert(parser(lexer('var1 = var1 var2 = var2 aceptar hola aceptar chau')))
+assert(parser(lexer("mientras = ( 2 + 3 * 5 )")))
+assert(parser(lexer("probando = ( hola + chau )")))
+assert(parser(lexer("si 2 + 5 entonces { resultado = 7 } sino { resultado = distintoA7 }")))
+assert(parser(lexer("si ( 2 * 2 ) entonces { resultado = 4 }")))
+assert(parser(lexer("mostrar hola ; 3 + 3")))
+assert(parser(lexer("comenzar = ( 2 * 5 ) + hola * ( 10 )")))
 
-#no me deja hacer otras derivaciones que tengan una forma distinta a la de Asignacion
-
-
-
-
-
-#assert(parser(lexer('variable = 123')))
-#assert(parser(lexer('x = 3')))
-#assert(parser(lexer("x = largo == arrayDeDatos(6521)"))==True)
-#assert(parser(lexer("mientras x == 3 hacer var = funcionSobre(ancho) + funcionSobre(largo)"))==True)
-
-#, ('EOF', 'EOF'))
-
-#parser([(token1,lexema1), (token2,lexema2), ..., ('EOF', 'EOF')])
-#parser([terminales, ('EOF', 'EOF')])
+#IMPORTANTE: asegurarse que las cadenas pertenezcan al lenguaje para que no tire error.

@@ -1,15 +1,15 @@
 import lexer
 
 no_terminales = ['Programa', 'Asignacion', 'Estructura', 'Valor', 'Expresion', 'Expresion*', 'Termino', 'Termino*','Factor', 'ListaExpresiones'] #Se guarda, en una variable, todos los no_terminales de la gramática, incluyendo los añadidos 'Expresion*' y 'Termino*'.
-terminales =  lexer.TOKENS_POSIBLES #No es la salida del lexer, sino los que determinamos.
-#['aceptar', 'cte', 'desde', 'entonces', 'hasta', '=', '{', '}', '+', 'mostrar', 'para', '(', ')', '*', ';', 'si', 'sino', 'id'] 
+terminales =  ['aceptar', 'cte', 'desde', 'entonces', 'hasta', '=', '{', '}', '+', 'mostrar', 'para', '(', ')', '*', ';', 'si', 'sino', 'id'] #No es la salida del lexer, sino los que determinamos.
+#terminales =  lexer.TOKENS_POSIBLES (esto estaba mal, ya que TOKENS_POSIBLES era una tupla)
 
 producciones = { #Estructura de diccionarios: llaves/claves y valores asignados a esa llave/clave. Hay que poner las producciones de los no terminales.
 	'Programa': [
+				['Asignacion', 'Programa'], #Esta produccion se pone primero porque es la de mayor longitud y sirve para evitar errores impredecibles.
 				['Asignacion'], #se agregó para reemplazar al "lambda". 49:40
-				['Asignacion', 'Programa'], 
-				['Estructura'], #se agregó para reemplazar al "lambda". 49:40
-				['Estructura', 'Programa']
+				['Estructura', 'Programa'], #Esta produccion se pone primero porque es la de mayor longitud y sirve para evitar errores impredecibles.
+				['Estructura'] #se agregó para reemplazar al "lambda". 49:40
 				#[] Para este algoritmo, la gramática no tiene que tener recursividad izquierda ni símbolos anulables, por lo que "lambda" se arregla con las líneas de código 11 y 13.
 	], 
 	#producciones['Programa'][1] --> ['Asignacion', 'Programa'].
@@ -67,7 +67,7 @@ producciones = { #Estructura de diccionarios: llaves/claves y valores asignados 
 
 def parser(lista_tokens): #lista_tokens es la salida del lexer, lista_tokens = lexer(codigo_fuente). Es la "w".
 	datos_parser = {
-		'tokens': lexer.lexer(lista_tokens),
+		'tokens': lista_tokens,
 		'posicion_indice': 0, #es la "t", seria en que posicion de la cadena de entrada estoy apuntando, es decir, una posicion dentro de nuestra lista_tokens
 		'error': False, #variable que controla el funcionamiento del parser, se pone en "false", asumiendo que no hay ningun error en el procesamiento. Si llega a haber un error, es decir que es "true", la cadena no pertenece
 	}
@@ -108,14 +108,24 @@ def parser(lista_tokens): #lista_tokens es la salida del lexer, lista_tokens = l
 
 	return principal()
 
-#Hacemos una variable que guarde la salida del lexer
+#Para probar el parser podemos:
 
-#cadena=lexer("variable = 123")
-#parser([cadena,('EOF','EOF')])
+# Hacer una variable que guarde la salida del lexer (el símbolo de fin de cadena ya está incluido) para luego parsearla, como por ejemplo:
+	#cadena = lexer("variable = 123")
+	#parser(cadena)
 
-#assert(parser(lexer.lexer('variable = 123')))
+# O simplemente llamar a la función lexer dentro del parser:
+	#parser(lexer(cadena))
 
-#, ('EOF', 'EOF'))
+assert(parser(lexer.lexer('variable = 123')))
+assert(parser(lexer.lexer('para id1 desde 0 hasta 10 { aceptar saludo }')))
+assert(parser(lexer.lexer('hola = 2 + 2')))
+assert(parser(lexer.lexer('var1 = var1 var2 = var2 aceptar hola aceptar chau')))
+assert(parser(lexer.lexer("mientras = ( 2 + 3 * 5 )")))
+assert(parser(lexer.lexer("probando = ( hola + chau )")))
+assert(parser(lexer.lexer("si 2 + 5 entonces { resultado = 7 } sino { resultado = distintoA7 }")))
+assert(parser(lexer.lexer("si ( 2 * 2 ) entonces { resultado = 4 }")))
+assert(parser(lexer.lexer("mostrar hola ; 3 + 3")))
+assert(parser(lexer.lexer("comenzar = ( 2 * 5 ) + hola * ( 10 )")))
 
-#parser([(token1,lexema1), (token2,lexema2), ..., ('EOF', 'EOF')])
-#parser([terminales, ('EOF', 'EOF')])
+#IMPORTANTE: asegurarse que las cadenas pertenezcan al lenguaje para que no tire error.
